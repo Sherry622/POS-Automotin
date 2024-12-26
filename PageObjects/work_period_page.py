@@ -8,6 +8,9 @@ class Work_Period:
         self.add_button="//button[text()='Add']"
         self.start_work="//button[@class='w-100 btn btn-secondary sm-text text-uppercase']"
         self.header_pos="//i[@class='fa fa-cutlery text-primary']"
+        self.end_work="//button[text()='End']"
+        self.end_popup="//button[text()='Yes, end work period!']"
+        self.header_home="//i[@class='fa fa-home xlg-text text-primary']"
 
     def start_work_click(self):
         self.driver.find_element(By.XPATH, self.work_period).click()
@@ -32,3 +35,22 @@ class Work_Period:
         EC.visibility_of_element_located((By.XPATH, self.header_pos)
         ))
         element.click()
+
+    def click_end_wp(self):
+        element = WebDriverWait(self.driver, 10).until(
+        EC.visibility_of_element_located((By.XPATH, self.end_work)
+                                         ))
+        element.click()
+
+    def click_end_popup(self):
+        element = WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located((By.XPATH, self.end_popup)
+                                             ))
+        element.click()
+
+    def click_header_home(self):
+        element = WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located((By.XPATH, self.header_home)
+                                                 ))
+        element.click()
+

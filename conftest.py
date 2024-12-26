@@ -12,6 +12,6 @@ def setup(request):
    request.cls.driver=webdriver.Chrome()
    request.cls.driver.get(conig.get("url","base_url"))
    request.cls.driver.maximize_window()
-   time.sleep(1)
+   # time.sleep(1)
    yield
    request.cls.driver.quit()

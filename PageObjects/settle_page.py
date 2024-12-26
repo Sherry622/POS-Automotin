@@ -1,4 +1,6 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 class Settle:
 
     def __init__(self,driver):
@@ -10,13 +12,21 @@ class Settle:
          self.cash="//button[text()='Cash']"
 
     def settle_button_click(self):
-        self.driver.find_element(By.XPATH, self.settle_button).click()
+        element = WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located((By.XPATH, self.settle_button)
+                                             ))
+        element.click()
+        # self.driver.find_element(By.XPATH, self.settle_button).click()
 
     def settle_button_click2(self):
         self.driver.find_element(By.XPATH, self.settle_button2).click()
 
     def click_all_button(self):
-        self.driver.find_element(By.XPATH, self.All).click()
+        element = WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located((By.XPATH, self.All)
+                                             ))
+        element.click()
+        # self.driver.find_element(By.XPATH, self.All).click()
 
     def click_running_settle(self):
         self.driver.find_element(By.XPATH, self.running_settle_button).click()

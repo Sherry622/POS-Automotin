@@ -33,7 +33,7 @@ class Test(Logs):
             lgs.critical("Test Case Fail")
             assert False
 
-
+    # @pytest.mark.skip
     def test_002(self):
         lgs = self.getlogs()
         lg = Login(self.driver)
@@ -48,7 +48,6 @@ class Test(Logs):
         lg.Signup_click()
         lgs.info("Click signup button")
         db.POS_click()
-        time.sleep(2)
         lgs.info("Click pos button")
         db.click_work_period()
         lgs.info("click work period")
@@ -72,16 +71,17 @@ class Test(Logs):
         lgs.info("Click fastfood deal1")
         db.Submit_dash_click()
         lgs.info("Click submit button")
+        time.sleep(1)
 
 
 
-    @pytest.mark.skip
     def test_003(self):
 
                 lgs = self.getlogs()
                 lg = Login(self.driver)
                 db=DashboardB(self.driver)
                 sp=Settle(self.driver)
+                wp = Work_Period(self.driver)
                 lgs.info("Test Case 03")
                 lgs.info("Test Case Starting")
                 lg.user_name_click(conig.get("credentials", "user_name"))
@@ -90,11 +90,8 @@ class Test(Logs):
                 lgs.info("Enter password")
                 lg.Signup_click()
                 lgs.info("Click signup button")
-                time.sleep(2)
                 db.POS_click()
                 lgs.info("Click pos button")
-                time.sleep(5)
-                db.click_work_period()
                 db.dashboard_running_button()
                 lgs.info("click running_order button")
                 sp.settle_button_click()
@@ -105,6 +102,15 @@ class Test(Logs):
                 lgs.info("click cash button")
                 sp.click_running_settle()
                 lgs.info("order settle successfull")
+                wp.click_header_home()
+                lgs.info("click header home")
+                db.click_time_work()
+                lgs.info("click work period main")
+                wp.click_end_wp()
+                lgs.info("click end work period button")
+                wp.click_end_popup()
+                lgs.info("day end")
+
 
 
 
