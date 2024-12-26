@@ -9,6 +9,7 @@ class Login:
          self.password="//input[@name='password']"
          self.signup_button="//button[@type='submit']"
          self.dashboard="//a[@class='font-weight-bold text-capitalize sm-text nav-link dropdown-toggle pl-2']"
+         self.error="//div[text()='Email or password is wrong!']"
 
     def user_name_click(self,username):
         element = WebDriverWait(self.driver, 10).until(
@@ -33,7 +34,19 @@ class Login:
 
 #
     def dashboard_text(self):
-         return self.driver.find_element(By.XPATH, self.dashboard).text
+        element = WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located((By.XPATH, self.dashboard)
+                                             ))
+        text=element.text
+        return text
+         # return self.driver.find_element(By.XPATH, self.dashboard).text
+
+    def error_mess(self):
+        element = WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located((By.XPATH, self.error)
+                                             ))
+        text=element.text
+        return text
 #
 #
 

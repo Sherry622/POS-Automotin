@@ -1,5 +1,4 @@
 import time
-
 import pytest
 from PageObjects.Login_page import Login
 from  PageObjects.Dashboard import DashboardB
@@ -23,7 +22,6 @@ class Test(Logs):
         lgs.info("Enter password")
         lg.Signup_click()
         lgs.info("Click signup button")
-        time.sleep(1)
         lg.dashboard_text()
 
         if 'Sherry' in lg.dashboard_text():
@@ -33,8 +31,30 @@ class Test(Logs):
             lgs.critical("Test Case Fail")
             assert False
 
-    # @pytest.mark.skip
     def test_002(self):
+        lgs = self.getlogs()
+        lg = Login(self.driver)
+        lgs.info("Test Case 01")
+        lgs.info("Test Case Starting")
+        lg.user_name_click(conig.get("credentials", "user_name"))
+        lgs.info("Enter username")
+        lg.password_click(conig.get("credentials", "invelid_password"))
+        lgs.info("Enter password")
+        lg.Signup_click()
+        lgs.info("Click signup button")
+        # time.sleep(5)
+        lg.error_mess()
+
+
+        if 'Email or password is wrong!' in lg.error_mess():
+            assert True
+            lgs.info("Test Case Pass ")
+        else:
+            lgs.critical("Test Case Fail")
+            assert False
+
+    @pytest.mark.skip
+    def test_003(self):
         lgs = self.getlogs()
         lg = Login(self.driver)
         db=DashboardB(self.driver)
@@ -74,8 +94,8 @@ class Test(Logs):
         time.sleep(1)
 
 
-
-    def test_003(self):
+    @pytest.mark.skip
+    def test_004(self):
 
                 lgs = self.getlogs()
                 lg = Login(self.driver)
