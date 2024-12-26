@@ -1,4 +1,6 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 class DashboardB:
 
     def __init__(self,driver):
@@ -18,11 +20,19 @@ class DashboardB:
 
 
     def POS_click(self):
-        self.driver.find_element(By.XPATH,self.POS_button).click()
+        element = WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located((By.XPATH, self.POS_button)
+        ))
+        element.click()
+        # self.driver.find_element(By.XPATH,self.POS_button).click()
 
 
     def takeaway_click(self):
-        self.driver.find_element(By.XPATH, self.Takeaway).click()
+        element = WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located((By.XPATH, self.Takeaway)
+                                             ))
+        element.click()
+        # self.driver.find_element(By.XPATH, self.Takeaway).click()
 
     def Testorder_click(self):
         self.driver.find_element(By.XPATH, self.test_order).click()
