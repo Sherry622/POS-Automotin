@@ -8,7 +8,7 @@ class Login:
          self.user_name="//input[@name='email']"
          self.password="//input[@name='password']"
          self.signup_button="//button[@type='submit']"
-         self.dashboard="//a[@class='font-weight-bold text-capitalize sm-text nav-link dropdown-toggle pl-2']"
+         self.dashboard="//a[text()='Sherry']"
          self.error="//div[text()='Email or password is wrong!']"
 
     def user_name_click(self,username):

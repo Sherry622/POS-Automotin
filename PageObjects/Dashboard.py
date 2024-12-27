@@ -28,9 +28,9 @@ class DashboardB:
         ))
         element.click()
 
-    def POS_click(self):
-        element = WebDriverWait(self.driver, 20).until(
-            EC.element_to_be_clickable((By.XPATH, self.POS_button)
+    def pos_click(self):
+        element = WebDriverWait(self.driver, 100).until(
+            EC.presence_of_element_located((By.XPATH, self.POS_button)
         ))
         element.click()
         # self.driver.find_element(By.XPATH,self.POS_button).click()

@@ -10,7 +10,7 @@ conig = configparser.ConfigParser()
 conig.read("utilitise/input.ini")
 @pytest.mark.usefixtures("setup")
 class Test(Logs):
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_001(self):
         lgs=self.getlogs()
         lg=Login(self.driver)
@@ -31,6 +31,7 @@ class Test(Logs):
             lgs.critical("Test Case Fail")
             assert False
 
+    # @pytest.mark.skip
     def test_002(self):
         lgs = self.getlogs()
         lg = Login(self.driver)
@@ -53,7 +54,7 @@ class Test(Logs):
             lgs.critical("Test Case Fail")
             assert False
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_003(self):
         lgs = self.getlogs()
         lg = Login(self.driver)
@@ -67,7 +68,7 @@ class Test(Logs):
         lgs.info("Enter password")
         lg.Signup_click()
         lgs.info("Click signup button")
-        db.POS_click()
+        db.pos_click()
         lgs.info("Click pos button")
         db.click_work_period()
         lgs.info("click work period")
@@ -94,7 +95,7 @@ class Test(Logs):
         time.sleep(1)
 
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_004(self):
 
                 lgs = self.getlogs()
@@ -110,7 +111,7 @@ class Test(Logs):
                 lgs.info("Enter password")
                 lg.Signup_click()
                 lgs.info("Click signup button")
-                db.POS_click()
+                db.pos_click()
                 lgs.info("Click pos button")
                 db.dashboard_running_button()
                 lgs.info("click running_order button")

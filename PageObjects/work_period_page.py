@@ -44,7 +44,7 @@ class Work_Period:
 
     def click_end_popup(self):
         element = WebDriverWait(self.driver, 10).until(
-            EC.visibility_of_element_located((By.XPATH, self.end_popup)
+            EC.presence_of_element_located((By.XPATH, self.end_popup)
                                              ))
         element.click()
 
