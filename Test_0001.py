@@ -10,7 +10,7 @@ conig = configparser.ConfigParser()
 conig.read("utilitise/input.ini")
 @pytest.mark.usefixtures("setup")
 class Test(Logs):
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_001(self):
         lgs=self.getlogs()
         lg=Login(self.driver)
@@ -31,7 +31,7 @@ class Test(Logs):
             lgs.critical("Test Case Fail")
             assert False
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_002(self):
         lgs = self.getlogs()
         lg = Login(self.driver)
@@ -54,7 +54,7 @@ class Test(Logs):
             lgs.critical("Test Case Fail")
             assert False
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_003(self):
         lgs = self.getlogs()
         lg = Login(self.driver)

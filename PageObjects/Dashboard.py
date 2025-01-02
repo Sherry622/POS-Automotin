@@ -5,7 +5,7 @@ class DashboardB:
 
     def __init__(self,driver):
          self.driver=driver
-         self.POS_button="(//div[@class='product-card__add'])[2]"
+         self.POS_button="//span[text()='Point of Sale']"
          self.Takeaway="(//button[@class='dropdwn--btn btn bg2-success text-white '])[3]"
          self.test_order="//figcaption[@class='item-name text-center px-2 mt-2']"
          self.fast_food="//div[text()='Fast Food Deals']"
@@ -29,8 +29,8 @@ class DashboardB:
         element.click()
 
     def pos_click(self):
-        element = WebDriverWait(self.driver, 100).until(
-            EC.presence_of_element_located((By.XPATH, self.POS_button)
+        element = WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located((By.XPATH, self.POS_button)
         ))
         element.click()
         # self.driver.find_element(By.XPATH,self.POS_button).click()
