@@ -54,7 +54,7 @@ class Test(Logs):
             lgs.critical("Test Case Fail")
             assert False
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_003(self):
         lgs = self.getlogs()
         lg = Login(self.driver)
@@ -68,6 +68,7 @@ class Test(Logs):
         lgs.info("Enter password")
         lg.Signup_click()
         lgs.info("Click signup button")
+        time.sleep(4)
         db.pos_click()
         lgs.info("Click pos button")
         db.click_work_period()
@@ -111,6 +112,7 @@ class Test(Logs):
                 lgs.info("Enter password")
                 lg.Signup_click()
                 lgs.info("Click signup button")
+                time.sleep(4)
                 db.pos_click()
                 lgs.info("Click pos button")
                 db.dashboard_running_button()
